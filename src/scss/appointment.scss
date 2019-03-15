@@ -1,0 +1,120 @@
+@mixin placeholderSetting {
+  color: #999;
+  font-size: 1em;
+  font-family: 'Roboto', sans-serif;
+}
+@mixin textboxSetting {
+  color: #333;
+  font-size: 1em;
+  font-family: 'Roboto', sans-serif;
+}
+@mixin placeholder {
+  input::placeholder {
+    @include placeholderSetting;
+  }
+  textarea::-webkit-input-placeholder {
+    //WebKit, Blink, Edge
+    @include placeholderSetting;
+  }
+  textarea:-moz-placeholder {
+    //Mozilla Firefox 4 to 18
+    @include placeholderSetting;
+  }
+  textarea::-moz-placeholder {
+    // Mozilla Firefox 19+
+    @include placeholderSetting;
+  }
+  textarea:-ms-input-placeholder {
+    //Internet Explorer 10-11
+    @include placeholderSetting;
+  }
+  textarea:placeholder-shown {
+    // Standard Pseudo-class
+    @include placeholderSetting;
+  }
+}
+
+#appointment {
+  padding: 100px 0px;
+  display: flex;
+  justify-content: center;
+}
+#appointment .container {
+  background-color: rgba(247, 247, 247, 0.8);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 30px 0px;
+  transition: 0.5s;
+  max-width: 800px;
+  margin: 0px 30px;
+}
+#appointment .container .content {
+  .appointmentText {
+    padding: 0px 0px;
+    margin: 0px auto;
+    p {
+      max-width: 600px;
+      padding: 0px 30px;
+      margin: 50px auto;
+      line-height: 1.3em;
+    }
+  }
+
+  form {
+    margin: 50px auto 0px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    align-items: center;
+    @include placeholder;
+    .btnBookAppointment {
+      color: white;
+      border: none;
+      max-width: 300px;
+      padding: 10px 20px;
+      font-size: 1em;
+      font-weight: bold;
+      margin: 0px auto 15px;
+      background-color: $colour2;
+      border-radius: 10px;
+      margin-top: 30px;
+      transition: 0.5s;
+      &:hover {
+        background-color: #2ee59d;
+        box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+        color: #fff;
+        transform: translateY(-7px);
+      }
+    }
+    .nameEmailContainer {
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
+      margin: 0px auto;
+      input {
+        width: 46%;
+        margin: 10px 2%;
+      }
+    }
+    .text {
+      resize: none;
+      padding: 15px;
+      border: 1px solid #cdcdcd;
+      @include textboxSetting;
+    }
+    textarea {
+      height: 140px;
+      width: 86%;
+      margin: 10px 2%;
+      @include textboxSetting;
+    }
+  }
+}
+@media (max-width: 840px) {
+  #appointment .container .content form .nameEmailContainer {
+    input {
+      width: 100%;
+      margin: 10px 2%;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@import 'reset';
+@import 'variables';
+@import 'swiper';
+@import 'header';
+@import './body/body';
+@import 'bottom';
+
+* {
+  box-sizing: border-box;
+  /* Must have */
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px 30px;
+  position: relative;
+}
+.title {
+  font-family: 'Roboto Slab', serif;
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.5em;
+  padding: 0px 30px;
+  &:after {
+    content: '';
+    display: block;
+    width: 150px;
+    margin: 30px auto 0px;
+    border-bottom: $colour1 solid 5px;
+  }
+}
